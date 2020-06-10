@@ -1,7 +1,8 @@
 package application;
 
 import controller.CodenationController;
-import model.JsonModel;
+import model.AlphabetModel;
+import model.CodenationJsonModel;
 import org.json.simple.JSONObject;
 import utils.JsonUtils;
 
@@ -16,7 +17,22 @@ public class Application {
         JsonUtils.saveAsJsonFile(json, fileLocation);
 
         JSONObject jsonObject = JsonUtils.createJsonObject(fileLocation);
-        JsonModel jsonModel = new JsonModel(jsonObject);
+        CodenationJsonModel jsonModel = new CodenationJsonModel(jsonObject);
+
+        AlphabetModel alphabetModel = new AlphabetModel(Integer.parseInt(jsonModel.getNumeroCasas()), jsonModel.getCifrado());
+        alphabetModel.denconde();
+
+        jsonModel.setDecifrado(alphabetModel.getDeciphered());
+
+
+
+        System.out.println("break");
+
+
+
+
+
+
 
 
     }
