@@ -42,6 +42,21 @@ public class CodenationJsonModel {
         return resumoCriptografico;
     }
 
+    public void setResumoCriptografico(String resumoCriptografico) {
+        this.resumoCriptografico = resumoCriptografico;
+    }
+
+    public String convertToJsonString() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("numero_casas", this.numeroCasas);
+        jsonObject.put("token", this.token);
+        jsonObject.put("cifrado", this.cifrado);
+        jsonObject.put("decifrado", this.decifrado);
+        jsonObject.put("resumo_criptografico", this.resumoCriptografico);
+
+        return jsonObject.toJSONString();
+    }
+
 
 
 

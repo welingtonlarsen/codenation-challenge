@@ -24,8 +24,8 @@ public class AlphabetModel {
         for(int index = 0; index<encrypted.length(); index++) {
             letter = encrypted.substring(index, index+1);
 
-            if (getNovaLetra(letter) != null) {
-                this.deciphered = this.deciphered + getNovaLetra(letter);
+            if (getNewLetter(letter) != null) {
+                this.deciphered = this.deciphered + getNewLetter(letter);
             }else {
                 this.deciphered = this.deciphered + letter;
             }
@@ -33,7 +33,8 @@ public class AlphabetModel {
         }
     }
 
-    private String getNovaLetra(String letter) {
+    /*
+    private String getNewLetter(String letter) {
         Integer positionLetterInAlphabet = getLetterPositionInAlphabet(letter);
 
         if (positionLetterInAlphabet != null) {
@@ -49,6 +50,25 @@ public class AlphabetModel {
 
         return null;
     }
+
+     */
+    private String getNewLetter(String letter) {
+        Integer positionLetterInAlphabet = getLetterPositionInAlphabet(letter);
+
+        if (positionLetterInAlphabet != null) {
+            for (int index = 0; index < indexNumber; index++) {
+                if (positionLetterInAlphabet!=0) {
+                    positionLetterInAlphabet = positionLetterInAlphabet - 1;
+                }else {
+                    positionLetterInAlphabet = 25;
+                }
+            }
+            return alfabeth[positionLetterInAlphabet];
+        }
+
+        return null;
+    }
+
 
     private Integer getLetterPositionInAlphabet(String letter){
         for (int index=0; index < this.alfabeth.length; index++) {
