@@ -10,13 +10,13 @@ import utils.Sha1Utils;
 public class Application {
     public static void main(String[] args) {
 
+
         //Informações gerais
-        String urlGetRequest = "https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=8d1ef2778e0771b5aed722fdc9bdd28a0ef818c3";
         String fileLocation = "answer.json";
 
         //GetRequest
         CodenationController codenationController = new CodenationController();
-        String json = codenationController.getJsonFile(urlGetRequest);
+        String json = codenationController.getRequest();
 
         //Salva o json file na localização informada
         JsonUtils.saveAsJsonFile(json, fileLocation);
@@ -28,7 +28,7 @@ public class Application {
         CodenationJsonModel codenationJsonModel = new CodenationJsonModel(jsonObject);
 
         //Cria o objeto AlphabetModel e decifra de acordo com o numero de casas desejado
-        AlphabetModel alphabetModel = new AlphabetModel(Integer.parseInt(codenationJsonModel.getNumeroCasas()), codenationJsonModel.getCifrado());
+        AlphabetModel alphabetModel = new AlphabetModel(codenationJsonModel.getNumeroCasas(), codenationJsonModel.getCifrado());
         alphabetModel.denconde();
 
         //Seta o decifrado do CodenationJsonModel
@@ -47,19 +47,8 @@ public class Application {
         JsonUtils.saveAsJsonFile(codenationJsonModel.convertToJsonString(), fileLocation);
 
         //PostRequest
-       // codenationController.post();
+        codenationController.postRequest();
 
-
-
-
-        System.out.println("break");
-
-
-
-
-
-
-
-
+        
     }
 }

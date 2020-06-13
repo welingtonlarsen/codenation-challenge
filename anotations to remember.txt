@@ -1,7 +1,0 @@
-Parsear uma String para um objevo Json 
-
-JsTypeComplex jsonResponse = (JsTypeComplex) JsonStringParser.parseJsonString(jsonString);
-JsTypeList resultsArr = (JsTypeList) jsonResponse.get("results");
-
-Salvando e Lendo um arquivo .json
-https://www.devmedia.com.br/leitura-e-escrita-de-arquivos-json-em-java/27663
